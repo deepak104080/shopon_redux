@@ -1,3 +1,31 @@
+// React - Redux, Flow, ......
+
+// React and Redux Projects
+
+
+// redux
+// react-redux
+
+// https://d33wubrfki0l68.cloudfront.net/01cc198232551a7e180f4e9e327b5ab22d9d14e7/b33f4/assets/images/reduxdataflowdiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif
+//https://thumbs.gfycat.com/SociableCraftyAlpaca-max-1mb.gif
+
+// 1) State/Store - Single source of truth
+
+// shareable data on store/global state - redux
+// non-shareable data - local state variable
+
+// 2) Reducer - state, action
+
+// 3) Action (dispatch) - type and payload
+
+
+
+// Myntra / Flipkart / Meesho / Bookmyshow / Redbus / MMT - Redux
+
+// E-Commerce - Redux Project
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
