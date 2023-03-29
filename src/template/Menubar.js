@@ -1,10 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Menubar = () => {
+    const stateData = useSelector((state) => state);
+    const cartData = useSelector((state) => state.cart.cartList);
+    console.log('cartData - ', stateData);
+    console.log('cartData - ', cartData);
     return (
         <div className='row menubar-area'>
-            <div className='col-12'>
+            <div className='col-10'>
 
                 <nav className="navbar navbar-expand-lg">
                     <div className="container-fluid">
@@ -21,12 +26,15 @@ const Menubar = () => {
                                     <Link className="nav-link" to="/category">Category</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/product">Product</Link>
+                                    <Link className="nav-link" to="/cart">Cart</Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
+            </div>
+            <div className='col-2 text-right'>
+                <Link to="/cart"><span>Cart Items - {cartData.length}</span></Link>
             </div>
         </div>
     )

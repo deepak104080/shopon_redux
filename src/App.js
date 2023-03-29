@@ -8,6 +8,7 @@ import Footer from './template/Footer';
 
 import Category from './Category';
 import Product from './Product';
+import Cart from './Cart';
 import NotFound from './NotFound';
 import Home from './Home';
 
@@ -27,6 +28,7 @@ function App() {
                 <Route path='/home' element={<Home />} />
                 <Route path='/category' element={<Category />} />
                 <Route path='/product/:id' element={<Product />} />
+                <Route path='/cart' element={<Cart />} />
                 <Route path='/' element={<Home />} />
                 <Route path='/*' element={<NotFound />} />
               </Routes>
