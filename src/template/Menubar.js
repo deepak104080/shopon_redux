@@ -19,15 +19,24 @@ const Menubar = () => {
                         </button> */}
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <Link className="nav-link" to="/home">Home</Link>
+                                </li> */}
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/category/electronics">Electronics</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/category">Category</Link>
+                                    <Link className="nav-link" to="/category/jewelery">Jewelery</Link>
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link" to="/category/men's clothing">Mens' Clothing</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/category/women's clothing">Womens' Clothing</Link>
+                                </li>
+                                {/* <li className="nav-item">
                                     <Link className="nav-link" to="/cart">Cart</Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>

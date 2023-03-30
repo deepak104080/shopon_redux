@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import {Link} from 'react-router-dom'
 
 const Cart = () => {
     const cartData = useSelector((state) => state.cart.cartList);
@@ -22,7 +23,7 @@ const Cart = () => {
                         }
                     </tbody>
                 </table>
-                <button className='btn btn-primary'>Proced to Checkout</button>
+                <Link to="/checkout"><button className='btn btn-primary'>Proced to Checkout</button></Link>
             </div>
         </div>
     )

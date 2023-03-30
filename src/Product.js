@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { setSelectedProduct } from './redux/actions/productActions';
 import { setCartData } from './redux/actions/cartActions';
+import { Link } from 'react-router-dom';
 
 const Product = () => {
   const temp = useParams();
@@ -12,6 +13,7 @@ const Product = () => {
   console.log('id in products page- ', id);
 
   const [cartStatus, setCartStatus] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const product = useSelector((state) => state.products.selectedProduct);
   const products = useSelector((state) => state.products.listProducts);
@@ -24,11 +26,17 @@ const Product = () => {
 
 
   const callApi = async (id) => {
-    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+    const response = await fetch(`https://fakestoreapi.com/products/${id}`).catch(err => {
+      setTimeout(() => {
+        setLoader(false);
+      }, 3000)
+    });
     const data = await response.json();
     console.log(data);
     // setProducts(data);
     dispatch(setSelectedProduct(data));
+    //hide loader
+    setLoader(false);
   }
 
   const checkCartStatus = () => {
@@ -40,7 +48,7 @@ const Product = () => {
     // console.log(temp);
     // console.log(cartData);
     // console.log('####################');
-    if(temp.indexOf(product.id) >= 0) {
+    if (temp.indexOf(product.id) >= 0) {
       setCartStatus(true);
     }
     else {
@@ -50,6 +58,8 @@ const Product = () => {
   }
 
   useEffect(() => {
+    //show loader
+    setLoader(true);
     callApi(id);
   }, [id])
 
@@ -73,7 +83,7 @@ const Product = () => {
 
   return (
     <div className='row'>
-      {product.id ?
+      {product.id && product.id == id &&
         <>
           <div className='col-6'>
             <img src={product.image} alt="Product Pic" className='img-fluid' />
@@ -84,10 +94,19 @@ const Product = () => {
             <div>{product.description}</div>
             <h4>Rating - {product.rating.rate} - Liked By {product.rating.count}</h4>
             {!cartStatus && <button onClick={() => addToCartFn(product)}>Add to Cart</button>}
+            {cartStatus && <Link to="/cart"><button>Go to Cart</button></Link>}
             <button>Buy Now</button>
           </div>
         </>
-        :
+      }
+      {loader &&
+        <>
+          <div className='col-12'>
+            <h2><img src='https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif'/></h2>
+          </div>
+        </>
+      }
+      {(!loader && !product.id) &&
         <>
           <div className='col-12'>
             <h3>Our services are down. Plz try after sometime.</h3>
@@ -95,7 +114,8 @@ const Product = () => {
             {/* hit window.location.href */}
           </div>
         </>
-        }
+      }
+
     </div>
   )
 }
@@ -104,3 +124,5 @@ export default Product
 
 
 //HW - Show loader for the API time
+
+//HW - Clear data from redux on leaving component
