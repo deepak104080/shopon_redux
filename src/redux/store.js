@@ -5,3 +5,7 @@ import reducers from './reducers/combinedReducer';
 const store = createStore(reducers);
 
 export default store;
+
+
+
+//add redux saga middleware in createstore - line 5

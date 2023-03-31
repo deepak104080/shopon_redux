@@ -126,3 +126,15 @@ export default Product
 //HW - Show loader for the API time
 
 //HW - Clear data from redux on leaving component
+
+
+
+
+//HW - 
+//featurewise
+
+
+// mapStateToProps, mapDispatchToProps
+
+// container based approach - 5/10 childs
+// Atom, molecules, organism based approach

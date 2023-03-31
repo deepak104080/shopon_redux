@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from './redux/actions/productActions';
 import { Link } from 'react-router-dom';
+// import TempButton from './TempButton';
+import { SubmitButton, ResetButton } from './TempButton';
 
 const Home = () => {
 
@@ -27,6 +29,7 @@ const Home = () => {
   })
 
   return (
+    <>
     <div className='row'>
       {
         products && products.map((item, index) => (
@@ -44,6 +47,10 @@ const Home = () => {
         ))
       }
     </div>
+    {/* <TempButton>aiuhrfliherfoihweroif</TempButton> */}
+    {/* <SubmitButton>submit...</SubmitButton>
+    <ResetButton>reset...</ResetButton> */}
+    </>
   )
 }
 

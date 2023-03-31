@@ -50,3 +50,8 @@ const Menubar = () => {
 }
 
 export default Menubar
+
+
+
+
+// Componnet - action -  redux middleware (redux-saga, redux-thunk) - action  reducer - store ------------ selector
